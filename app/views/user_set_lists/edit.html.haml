@@ -1,0 +1,14 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel-heading
+        Edit Profile
+      .panel-body
+        = simple_form_for(@user_set_list, method: :patch, html: {role: 'form'}) do |f|
+          .form-group
+            = f.input :first_name
+          .form-group
+            = f.input :last_name
+          .form-group
+            = f.input :avatar, as: :file
+          = f.button :submit

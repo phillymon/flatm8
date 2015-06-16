@@ -1,0 +1,64 @@
+.row
+  .col-md-2.col-md-offset-2
+    .row
+      .col-md-12
+        .text-center
+          = image_tag(@user.profile.avatar.url(:dash), class: "img-thumbnail")
+    .row
+      .col-md-12
+        .text-center
+          %h3= @user.name
+    .row
+      .col-md-12
+        = link_to 'Edit Profile', edit_user_set_list_path
+    .row
+      .col-md-12
+        %br
+    .row
+      .col-md-12
+        .text-center
+          %h1
+            \-
+            %i.fa.fa-usd
+            24.73
+  .col-md-8
+    .row
+      .col-md-12
+        %div{:role => "tabpanel"}
+          / Nav tabs
+          %ul.nav.nav-pills{:role => "tablist"}
+            %li.active{:role => "presentation"}
+              %a{"aria-controls" => "all", "data-toggle" => "tab", :href => "#all", :role => "tab"} All
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "debts", "data-toggle" => "tab", :href => "#debts", :role => "tab"} Debts
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "assets", "data-toggle" => "tab", :href => "#assets", :role => "tab"} Assets
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} Messages
+          / Tab panes
+          .tab-content
+            #all.tab-pane.fade.in.active{:role => "tabpanel"}
+              .row
+                .col-md-12
+                  %br
+                  - 10.times do
+                    .row
+                      .col-md-10.col-md-offset-1
+                        .row
+                          .col-md-4
+                            .text-center
+                              = image_tag(@user.profile.avatar.url(:thumb), class: "img-rounded")
+                          .col-md-4
+                            .text-center
+                              %h2
+                                \-
+                                %i.fa.fa-usd
+                                12.45
+                          .col-md-1
+                          .col-md-3
+                            .text-center
+                              = image_tag('thumb/default.jpg', class: "img-rounded")
+                        %br
+            #debts.tab-pane.fade{:role => "tabpanel"} ...
+            #assets.tab-pane.fade{:role => "tabpanel"} ...
+            #messages.tab-pane.fade{:role => "tabpanel"} ...

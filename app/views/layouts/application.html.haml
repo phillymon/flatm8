@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Flatmate
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    = render 'layouts/navigation'
+    .container
+      .row
+        .col-md-6.col-md-offset-3
+          .text-center
+            %b
+              - if notice
+                %p.alert.alert-success= notice
+              - if alert
+                %p.alert.alert-danger= alert
+    .container-fluid
+      = yield
